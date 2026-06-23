@@ -479,6 +479,26 @@ body {
   font-size: 0.88rem;
 }
 
+/* Purchase-order table: fixed layout with sized columns so every column
+   (including "Final Order") fits the panel on desktop. Falls back to a
+   horizontally scrollable layout on narrow screens. */
+.po-table {
+  min-width: 0;
+  table-layout: fixed;
+}
+
+.data-table.po-table thead th {
+  white-space: normal;
+  vertical-align: bottom;
+}
+
+@media (max-width: 860px) {
+  .po-table {
+    table-layout: auto;
+    min-width: 820px;
+  }
+}
+
 .analysis-view .num {
   text-align: center;
 }
@@ -617,7 +637,8 @@ body {
 }
 
 .analysis-table-wrap {
-  overflow-x: hidden;
+  /* Fit on desktop; scroll (don't clip) if the columns ever exceed the panel. */
+  overflow-x: auto;
 }
 
 .analysis-table,
@@ -626,10 +647,13 @@ body {
   table-layout: fixed;
 }
 
-.analysis-table th,
-.analysis-table td,
-.compact-data-table th,
-.compact-data-table td {
+.data-table.analysis-table th,
+.data-table.analysis-table td,
+.data-table.compact-data-table th,
+.data-table.compact-data-table td {
+  /* Higher specificity than `.data-table thead th { white-space: nowrap }` so
+     long headers like "Suggested cases" wrap inside their column instead of
+     overflowing and pushing the table past the panel edge. */
   white-space: normal;
 }
 
@@ -638,9 +662,23 @@ body {
   text-align: center;
 }
 
-.analysis-table th.num,
-.analysis-table td.num,
 .compact-data-table th.num,
 .compact-data-table td.num {
   width: 7rem;
+}
+
+/* Narrower numeric columns so the wider analysis tables (e.g. Vendor summary,
+   which has a long vendor-name column) fit without clipping "Suggested cases". */
+.analysis-table th.num,
+.analysis-table td.num {
+  width: 5.5rem;
+}
+
+.vendor-summary th:first-child,
+.vendor-summary td:first-child {
+  width: 27%;          /* Vendor — capped instead of greedy */
+}
+.vendor-summary th.num,
+.vendor-summary td.num {
+  width: 17.5%;        /* 4 numeric columns × 16.5% + 34% = 100% */
 }

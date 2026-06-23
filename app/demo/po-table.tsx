@@ -29,7 +29,17 @@ export default function PoTable({
 
   return (
     <div className="table-wrap">
-      <table className="data-table">
+      <table className="data-table po-table">
+        <colgroup>
+          <col style={{ width: "7.5rem" }} />{/* Scan Code */}
+          <col style={{ width: "5rem" }} />{/* Item Code */}
+          <col />{/* Item Description — takes the remaining width */}
+          <col style={{ width: "5.5rem" }} />{/* Current Inv */}
+          <col style={{ width: "5.5rem" }} />{/* Sales (14d) */}
+          <col style={{ width: "5.5rem" }} />{/* Suggested */}
+          <col style={{ width: "6rem" }} />{/* Adjustment */}
+          <col style={{ width: "5.5rem" }} />{/* Final Order */}
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">Scan Code</th>

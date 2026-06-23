@@ -108,7 +108,7 @@ function ItemTable({
 export default function AnalysisView({ a }: { a: Analysis }) {
   return (
     <div className="analysis-view space-y-8">
-      <div className="grid gap-3 grid-cols-2 lg:grid-cols-5">
+      <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
         <Stat label="Units sold (14d)" value={n(a.totalUnitsSold)} />
         <Stat label="Current inventory units" value={n(a.currentInventoryUnits)} />
         <Stat label="Suggested cases" value={n(a.totalSuggestedCases)} />
@@ -153,7 +153,7 @@ export default function AnalysisView({ a }: { a: Analysis }) {
         <h3 className="font-semibold">Vendor summary</h3>
         <p className="mb-2 text-xs text-[color:var(--muted)]">Sales and on-hand from the upload; order lines and cases from the generated PO.</p>
         <div className="table-wrap analysis-table-wrap" style={{ maxHeight: "24rem" }}>
-          <table className="data-table analysis-table">
+          <table className="data-table analysis-table vendor-summary">
             <thead>
               <tr>
                 <th scope="col">Vendor</th>
