@@ -1,0 +1,154 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - text: Demo only — all products, vendors, scan codes, inventory, and sales shown are
+    - strong [ref=e3]: synthetic
+    - text: . No real business data.
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - link "Restock" [ref=e7] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e8]: Demand-based purchase orders for retail
+      - navigation [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - link "Demo" [ref=e11] [cursor=pointer]:
+          - /url: /demo
+        - link "Catalog" [ref=e12] [cursor=pointer]:
+          - /url: /catalog
+        - link "Vendors" [ref=e13] [cursor=pointer]:
+          - /url: /vendors
+  - main [ref=e14]:
+    - generic [ref=e15]:
+      - heading "Interactive demo" [level=1] [ref=e16]
+      - paragraph [ref=e17]: Download the synthetic sample workbook, upload it, and review the generated purchase orders and analytics. Everything runs in your browser; a refresh resets the demo.
+      - generic [ref=e18]:
+        - button "Upload" [ref=e19]
+        - button "Purchase Orders" [ref=e20]
+        - button "Analysis" [ref=e21]
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - text: Vendor
+            - combobox "Vendor" [ref=e66]:
+              - option "Cascade Beverage Co." [selected]
+              - option "Harbor Grocery Supply"
+              - option "Lone Pine Tobacco"
+              - option "Northwind Snacks"
+              - option "Summit Dairy"
+            - generic [ref=e67]: Sales through 2026-06-20
+          - button "↓ Download CSV" [ref=e68] [cursor=pointer]
+        - table [ref=e70]:
+          - rowgroup [ref=e71]:
+            - row "Scan Code Item Code Item Description Current Inv Sales (14d) Suggested Adjustment Final Order" [ref=e72]:
+              - columnheader "Scan Code" [ref=e73]
+              - columnheader "Item Code" [ref=e74]
+              - columnheader "Item Description" [ref=e75]
+              - columnheader "Current Inv" [ref=e76]
+              - columnheader "Sales (14d)" [ref=e77]
+              - columnheader "Suggested" [ref=e78]
+              - columnheader "Adjustment" [ref=e79]
+              - columnheader "Final Order" [ref=e80]
+          - rowgroup [ref=e81]:
+            - row "490000100017 CB-COLA12 Cascade Cola 12oz Can 4 47.9 2 Adjustment for Cascade Cola 12oz Can 0 2" [ref=e82]:
+              - cell "490000100017" [ref=e83]
+              - cell "CB-COLA12" [ref=e84]
+              - cell "Cascade Cola 12oz Can" [ref=e85]
+              - cell "4" [ref=e86]
+              - cell "47.9" [ref=e87]
+              - cell "2" [ref=e88]
+              - cell "Adjustment for Cascade Cola 12oz Can 0" [ref=e89]:
+                - generic [ref=e90]: Adjustment for Cascade Cola 12oz Can
+                - textbox "Adjustment for Cascade Cola 12oz Can" [ref=e91]: "0"
+              - cell "2" [ref=e92]
+            - row "490000100031 CB-DIET12 Cascade Diet Cola 12oz Can 13 14 1 Adjustment for Cascade Diet Cola 12oz Can 0 1" [ref=e93]:
+              - cell "490000100031" [ref=e94]
+              - cell "CB-DIET12" [ref=e95]
+              - cell "Cascade Diet Cola 12oz Can" [ref=e96]
+              - cell "13" [ref=e97]
+              - cell "14" [ref=e98]
+              - cell "1" [ref=e99]
+              - cell "Adjustment for Cascade Diet Cola 12oz Can 0" [ref=e100]:
+                - generic [ref=e101]: Adjustment for Cascade Diet Cola 12oz Can
+                - textbox "Adjustment for Cascade Diet Cola 12oz Can" [ref=e102]: "0"
+              - cell "1" [ref=e103]
+            - row "490000100062 CB-ENRG Cascade Energy Drink 16oz 0 43 4 Adjustment for Cascade Energy Drink 16oz 0 4" [ref=e104]:
+              - cell "490000100062" [ref=e105]
+              - cell "CB-ENRG" [ref=e106]
+              - cell "Cascade Energy Drink 16oz" [ref=e107]
+              - cell "0" [ref=e108]
+              - cell "43" [ref=e109]
+              - cell "4" [ref=e110]
+              - cell "Adjustment for Cascade Energy Drink 16oz 0" [ref=e111]:
+                - generic [ref=e112]: Adjustment for Cascade Energy Drink 16oz
+                - textbox "Adjustment for Cascade Energy Drink 16oz" [ref=e113]: "0"
+              - cell "4" [ref=e114]
+            - row "490000100079 CB-ENRGZ Cascade Energy Zero 16oz 51 83 4 Adjustment for Cascade Energy Zero 16oz 0 4" [ref=e115]:
+              - cell "490000100079" [ref=e116]
+              - cell "CB-ENRGZ" [ref=e117]
+              - cell "Cascade Energy Zero 16oz" [ref=e118]
+              - cell "51" [ref=e119]
+              - cell "83" [ref=e120]
+              - cell "4" [ref=e121]
+              - cell "Adjustment for Cascade Energy Zero 16oz 0" [ref=e122]:
+                - generic [ref=e123]: Adjustment for Cascade Energy Zero 16oz
+                - textbox "Adjustment for Cascade Energy Zero 16oz" [ref=e124]: "0"
+              - cell "4" [ref=e125]
+            - row "490000100093 CB-GINGER Cascade Ginger Ale 12oz Can 2 16 1 Adjustment for Cascade Ginger Ale 12oz Can 0 1" [ref=e126]:
+              - cell "490000100093" [ref=e127]
+              - cell "CB-GINGER" [ref=e128]
+              - cell "Cascade Ginger Ale 12oz Can" [ref=e129]
+              - cell "2" [ref=e130]
+              - cell "16" [ref=e131]
+              - cell "1" [ref=e132]
+              - cell "Adjustment for Cascade Ginger Ale 12oz Can 0" [ref=e133]:
+                - generic [ref=e134]: Adjustment for Cascade Ginger Ale 12oz Can
+                - textbox "Adjustment for Cascade Ginger Ale 12oz Can" [ref=e135]: "0"
+              - cell "1" [ref=e136]
+            - row "490000100048 CB-LEMON Cascade Lemon-Lime 20oz Bottle 14 32 1 Adjustment for Cascade Lemon-Lime 20oz Bottle 0 1" [ref=e137]:
+              - cell "490000100048" [ref=e138]
+              - cell "CB-LEMON" [ref=e139]
+              - cell "Cascade Lemon-Lime 20oz Bottle" [ref=e140]
+              - cell "14" [ref=e141]
+              - cell "32" [ref=e142]
+              - cell "1" [ref=e143]
+              - cell "Adjustment for Cascade Lemon-Lime 20oz Bottle 0" [ref=e144]:
+                - generic [ref=e145]: Adjustment for Cascade Lemon-Lime 20oz Bottle
+                - textbox "Adjustment for Cascade Lemon-Lime 20oz Bottle" [ref=e146]: "0"
+              - cell "1" [ref=e147]
+            - row "490000100086 CB-ROOT Cascade Root Beer 20oz Bottle 17 72 3 Adjustment for Cascade Root Beer 20oz Bottle 0 3" [ref=e148]:
+              - cell "490000100086" [ref=e149]
+              - cell "CB-ROOT" [ref=e150]
+              - cell "Cascade Root Beer 20oz Bottle" [ref=e151]
+              - cell "17" [ref=e152]
+              - cell "72" [ref=e153]
+              - cell "3" [ref=e154]
+              - cell "Adjustment for Cascade Root Beer 20oz Bottle 0" [ref=e155]:
+                - generic [ref=e156]: Adjustment for Cascade Root Beer 20oz Bottle
+                - textbox "Adjustment for Cascade Root Beer 20oz Bottle" [ref=e157]: "0"
+              - cell "3" [ref=e158]
+            - row "490000100055 CB-WATER Cascade Spring Water 500ml 9 32 1 Adjustment for Cascade Spring Water 500ml 0 1" [ref=e159]:
+              - cell "490000100055" [ref=e160]
+              - cell "CB-WATER" [ref=e161]
+              - cell "Cascade Spring Water 500ml" [ref=e162]
+              - cell "9" [ref=e163]
+              - cell "32" [ref=e164]
+              - cell "1" [ref=e165]
+              - cell "Adjustment for Cascade Spring Water 500ml 0" [ref=e166]:
+                - generic [ref=e167]: Adjustment for Cascade Spring Water 500ml
+                - textbox "Adjustment for Cascade Spring Water 500ml" [ref=e168]: "0"
+              - cell "1" [ref=e169]
+          - rowgroup [ref=e170]:
+            - row "TOTAL 17 17" [ref=e171]:
+              - cell "TOTAL" [ref=e172]
+              - cell [ref=e173]
+              - cell [ref=e174]
+              - cell [ref=e175]
+              - cell [ref=e176]
+              - cell "17" [ref=e177]
+              - cell [ref=e178]
+              - cell "17" [ref=e179]
+        - paragraph [ref=e180]: Final Order = max(0, Suggested + Adjustment). Edit any Adjustment to override the suggestion; totals update live. Adjustments live in this browser session only.
+  - button "Open Next.js Dev Tools" [ref=e58] [cursor=pointer]:
+    - img [ref=e59]
+  - alert [ref=e62]

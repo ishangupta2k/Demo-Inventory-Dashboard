@@ -1,0 +1,68 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - text: Demo only — all products, vendors, scan codes, inventory, and sales shown are
+    - strong [ref=e3]: synthetic
+    - text: . No real business data.
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - link "Restock" [ref=e7] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e8]: Demand-based purchase orders for retail
+      - navigation [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - link "Demo" [ref=e11] [cursor=pointer]:
+          - /url: /demo
+        - link "Catalog" [ref=e12] [cursor=pointer]:
+          - /url: /catalog
+        - link "Vendors" [ref=e13] [cursor=pointer]:
+          - /url: /vendors
+  - main [ref=e14]:
+    - generic [ref=e15]:
+      - heading "Interactive demo" [level=1] [ref=e16]
+      - paragraph [ref=e17]: Download the synthetic sample workbook, upload it, and review the generated purchase orders and analytics. Everything runs in your browser; a refresh resets the demo.
+      - generic [ref=e18]:
+        - button "Upload" [ref=e19]
+        - button "Purchase Orders" [disabled] [ref=e20]
+        - button "Analysis" [disabled] [ref=e21]
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - heading "1. Get a sample workbook" [level=2] [ref=e24]
+          - paragraph [ref=e25]:
+            - text: A synthetic
+            - strong [ref=e26]: .xlsx
+            - text: with matching scan codes, so the demo produces a full order.
+          - link "↓ Download sample workbook" [ref=e27] [cursor=pointer]:
+            - /url: /sample-inventory.xlsx
+        - generic [ref=e28]:
+          - heading "File requirements" [level=2] [ref=e29]
+          - paragraph [ref=e30]:
+            - text: One
+            - strong [ref=e31]: .xlsx
+            - text: workbook (≤ 25 MB) with
+            - strong [ref=e32]: two sheets
+            - text: ", named exactly:"
+          - generic [ref=e33]:
+            - generic [ref=e34]:
+              - generic [ref=e35]: InventoryData
+              - list [ref=e36]:
+                - listitem [ref=e37]: Scan Code (or UPC)
+                - listitem [ref=e38]: Date
+                - listitem [ref=e39]: Current Qty (or In Stock / Current Inventory)
+            - generic [ref=e40]:
+              - generic [ref=e41]: SalesHistory
+              - list [ref=e42]:
+                - listitem [ref=e43]: Scan Code (or UPC)
+                - listitem [ref=e44]: Date
+                - listitem [ref=e45]: "Sold Qty (or Qty Sold / Total Qty / # Sold)"
+          - paragraph [ref=e46]: Column names are case-sensitive. Extra columns are ignored. Dates may be Excel dates or YYYY-MM-DD / M/D/YYYY.
+        - generic [ref=e47]:
+          - heading "2. Upload & generate" [level=2] [ref=e48]
+          - generic [ref=e49]:
+            - generic [ref=e50]: Workbook file
+            - button "Workbook file" [active] [ref=e51]
+            - button "Generate order" [ref=e52] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=e58] [cursor=pointer]:
+    - img [ref=e59]
+  - alert [ref=e62]
