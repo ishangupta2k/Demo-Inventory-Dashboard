@@ -1,15 +1,19 @@
 # Demo-Inventory-Dashboard — Interactive Purchase Order Demo
 
+**[▶ Live demo](https://demo-inventory-dashboard.vercel.app/)**
+
 A sanitized, interactive demo of a private retail operations platform that converts
 point-of-sale **inventory and sales exports into vendor purchase orders**. Upload a
 spreadsheet, get vendor-ready orders computed from real demand, review and adjust them,
 and export a CSV — plus an analytics view that explains what's selling, what's at risk,
 and what's overstocked.
 
-> ### ⚠️ Synthetic data disclaimer
-> **Every product, vendor, scan code, price, inventory count, and sale shown in this demo
-> is fictional.** There is no real business data, no database, no login, and no
-> persistence. The real operational deployment this demo is modeled on remains private.
+> ### ⚠️ Demonstration data
+> Product and vendor names are real consumer brands, used only so the demo feels
+> realistic. The **inventory levels, sales figures, scan-code mappings, and the generated
+> purchase orders are all synthetic** — they do not represent any real store's data or any
+> real vendor relationship. There is no database, no login, and no persistence. The real
+> operational deployment this demo is modeled on remains private.
 
 ---
 
@@ -49,7 +53,7 @@ _Placeholders — add images under `docs/` and link them here:_
 ## Technology stack
 
 - **Next.js 16** (App Router, React 19) + **TypeScript**
-- **Tailwind CSS v4** (pinned dark theme, shared UI primitives in `app/globals.css`)
+- **Tailwind CSS v4** (light & dark themes, shared UI primitives in `app/globals.css`)
 - **read-excel-file** — bounded, maintained Excel parser (browser build) for uploads
 - **Node's built-in test runner** (`node --test`) for the engine and analytics
 - **SheetJS (`xlsx`)** — dev-only, used by one build script to write the trusted sample workbook (never to parse uploads)
@@ -159,7 +163,7 @@ npm run build
 
 ## Public demo
 
-🔗 **[ live demo URL placeholder ]**
+🔗 **Live demo: https://demo-inventory-dashboard.vercel.app/**
 
 ---
 
