@@ -30,14 +30,6 @@ This public version keeps the exact engine and design but strips everything oper
 (database, authentication, real catalog, OneDrive integration) and runs entirely in the
 browser on synthetic data.
 
-## Screenshots
-
-_Placeholders — add images under `docs/` and link them here:_
-
-| Home | Demo / PO review | Analysis |
-|------|------------------|----------|
-| `docs/home.png` | `docs/demo.png` | `docs/analysis.png` |
-
 ## Features
 
 - **Synthetic sample workbook** — one-click download of a valid `.xlsx` that produces a full order.
@@ -56,7 +48,6 @@ _Placeholders — add images under `docs/` and link them here:_
 - **Tailwind CSS v4** (light & dark themes, shared UI primitives in `app/globals.css`)
 - **read-excel-file** — bounded, maintained Excel parser (browser build) for uploads
 - **Node's built-in test runner** (`node --test`) for the engine and analytics
-- **SheetJS (`xlsx`)** — dev-only, used by one build script to write the trusted sample workbook (never to parse uploads)
 - No database, no auth library, no charting library
 
 ## Architecture
@@ -139,9 +130,8 @@ All explainable arithmetic over the uploaded window — **no AI or machine learn
 - **No database, no auth, no persistence.** There is nothing to leak and nothing to breach.
 - **Malformed input is rejected before any calculation** — wrong extension, oversize file,
   missing sheets, or missing required columns all produce a clear error.
-- **Parser choice.** Uploads use the small, maintained `read-excel-file`. SheetJS (`xlsx`)
-  is a dev-only dependency used by one build script to write the trusted sample workbook;
-  it never parses untrusted input.
+- **Parser choice.** Uploads use the small, maintained `read-excel-file`, which never
+  executes untrusted input.
 - **Synthetic data only.** The bundled catalog, vendors, scan codes, inventory, and sales
   are fictional.
 
@@ -149,7 +139,6 @@ All explainable arithmetic over the uploaded window — **no AI or machine learn
 
 ```bash
 npm install
-npm run sample     # regenerate public/sample-inventory.xlsx from the fixtures (already committed)
 npm run dev        # http://localhost:3000
 ```
 
