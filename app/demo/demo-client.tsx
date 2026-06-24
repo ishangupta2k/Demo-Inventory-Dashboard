@@ -115,39 +115,22 @@ export default function DemoClient() {
             and inspect the demand analysis in one browser session.
           </p>
         </div>
-        <div className="summary-panel min-w-[14rem] sm:grid-cols-3 lg:grid-cols-1">
-          {hasResult ? (
-            <>
-              <div className="summary-tile">
-                <div className="summary-value">{vendorNames.length}</div>
-                <div className="summary-label">Vendors in current run</div>
-              </div>
-              <div className="summary-tile">
-                <div className="summary-value">{lines.length}</div>
-                <div className="summary-label">Order lines generated</div>
-              </div>
-              <div className="summary-tile">
-                <div className="summary-value">{analysis?.totalSuggestedCases ?? 0}</div>
-                <div className="summary-label">Suggested cases</div>
-              </div>
-            </>
-          ) : (
-            <>
-              <div className="summary-tile">
-                <div className="summary-value">25</div>
-                <div className="summary-label">MB workbook limit</div>
-              </div>
-              <div className="summary-tile">
-                <div className="summary-value">2</div>
-                <div className="summary-label">Required sheets</div>
-              </div>
-              <div className="summary-tile">
-                <div className="summary-value">0</div>
-                <div className="summary-label">Server-side file writes</div>
-              </div>
-            </>
-          )}
-        </div>
+        {hasResult && (
+          <div className="summary-panel min-w-[14rem] sm:grid-cols-3 lg:grid-cols-1">
+            <div className="summary-tile">
+              <div className="summary-value">{vendorNames.length}</div>
+              <div className="summary-label">Vendors in current run</div>
+            </div>
+            <div className="summary-tile">
+              <div className="summary-value">{lines.length}</div>
+              <div className="summary-label">Order lines generated</div>
+            </div>
+            <div className="summary-tile">
+              <div className="summary-value">{analysis?.totalSuggestedCases ?? 0}</div>
+              <div className="summary-label">Suggested cases</div>
+            </div>
+          </div>
+        )}
       </header>
 
       <div className="tab-row">

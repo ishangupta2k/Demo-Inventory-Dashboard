@@ -16,41 +16,26 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="space-y-10 pb-10">
+    <div className="space-y-14 pb-12">
       <section className="hero-panel">
-        <div className="flex flex-col justify-between gap-8">
-          <div>
-            <p className="eyebrow">Retail operations demo</p>
-            <h1 className="page-title max-w-3xl">
-              Turn POS exports into vendor purchase orders.
-            </h1>
-            <p className="page-subtitle">
-              A sanitized interactive demo of a private retail operations platform. Upload an
-              inventory &amp; sales workbook and get vendor-ready purchase orders computed from
-              real demand.
-            </p>
-          </div>
+        <p className="eyebrow">Retail operations demo</p>
+        <h1 className="page-title max-w-3xl">
+          Turn POS exports into vendor purchase orders.
+        </h1>
+        <p className="page-subtitle">
+          A sanitized interactive demo of a private retail operations platform. Upload an
+          inventory &amp; sales workbook and get vendor-ready purchase orders computed from
+          real demand.
+        </p>
 
-          <div className="flex flex-wrap items-center gap-3">
-            <Link href="/demo" className="btn btn-primary">Open demo</Link>
-            <Link href="/catalog" className="btn">View catalog</Link>
-          </div>
+        <div className="mt-7 flex flex-wrap items-center gap-3">
+          <Link href="/demo" className="btn btn-primary">Open demo</Link>
+          <Link href="/catalog" className="btn">View catalog</Link>
         </div>
 
-        <aside className="summary-panel" aria-label="Demo summary">
-          <div className="summary-tile">
-            <div className="summary-value">{catalog.length}</div>
-            <div className="summary-label">Synthetic catalog items</div>
-          </div>
-          <div className="summary-tile">
-            <div className="summary-value">{vendors.length}</div>
-            <div className="summary-label">Fictional vendors</div>
-          </div>
-          <div className="summary-tile">
-            <div className="summary-value">0</div>
-            <div className="summary-label">Server-side uploaded-file writes</div>
-          </div>
-        </aside>
+        <p className="hero-meta">
+          {catalog.length} synthetic items · {vendors.length} vendors · parsed in your browser, never uploaded
+        </p>
       </section>
 
       <section className="section-panel">
@@ -65,39 +50,33 @@ export default function HomePage() {
       </section>
 
       <section>
-        <div className="mb-4 flex items-end justify-between gap-4">
-          <div>
-            <p className="eyebrow">Workflow</p>
-            <h2 className="text-2xl font-bold">From export to reviewed order</h2>
-          </div>
+        <div className="mb-6">
+          <p className="eyebrow">Workflow</p>
+          <h2 className="mt-1 text-2xl font-semibold">From export to reviewed order</h2>
         </div>
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-x-10 gap-y-8 sm:grid-cols-3">
           {steps.map((st) => (
-            <div key={st.n} className="section-panel">
-              <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-[8px] bg-[color:var(--primary)] text-sm font-bold text-white">
-                {st.n}
-              </div>
+            <div key={st.n}>
+              <span className="step-num">{String(st.n).padStart(2, "0")}</span>
               <h3 className="font-semibold">{st.title}</h3>
-              <p className="mt-1 text-sm leading-6 text-[color:var(--muted)]">{st.desc}</p>
+              <p className="mt-1.5 text-sm leading-6 text-[color:var(--muted)]">{st.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section>
-        <div className="mb-4">
-          <p className="eyebrow">Architecture</p>
-          <h2 className="text-2xl font-bold">Public-safe by design</h2>
-        </div>
-        <div className="grid gap-4 lg:grid-cols-3">
+      <section className="section-panel">
+        <p className="eyebrow">Architecture</p>
+        <h2 className="mt-1 text-2xl font-semibold">Public-safe by design</h2>
+        <div className="mt-5 grid gap-x-10 gap-y-6 sm:grid-cols-3">
           {arch.map(([t, d]) => (
-            <div key={t} className="section-panel">
+            <div key={t}>
               <h3 className="font-semibold">{t}</h3>
-              <p className="mt-1 text-sm leading-6 text-[color:var(--muted)]">{d}</p>
+              <p className="mt-1.5 text-sm leading-6 text-[color:var(--muted)]">{d}</p>
             </div>
           ))}
         </div>
-        <p className="mt-5 text-sm text-[color:var(--muted)]">
+        <p className="mt-6 border-t border-[color:var(--line)] pt-5 text-sm text-[color:var(--muted)]">
           The real operational deployment is private and database-backed. This public demo is a
           sanitized copy with synthetic data and no persistence.
         </p>

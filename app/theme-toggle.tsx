@@ -7,13 +7,13 @@ type Theme = "dark" | "light";
 const STORAGE_KEY = "restock-theme";
 
 function getInitialTheme(): Theme {
-  if (typeof window === "undefined") return "dark";
+  if (typeof window === "undefined") return "light";
 
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY);
-    return stored === "light" || stored === "dark" ? stored : "dark";
+    return stored === "light" || stored === "dark" ? stored : "light";
   } catch {
-    return "dark";
+    return "light";
   }
 }
 
