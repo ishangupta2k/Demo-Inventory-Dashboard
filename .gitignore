@@ -14,6 +14,7 @@
 
 # debug
 npm-debug.log*
+.playwright-cli/
 
 # typescript
 *.tsbuildinfo
