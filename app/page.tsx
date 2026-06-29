@@ -9,12 +9,6 @@ export default function HomePage() {
     { n: 3, title: "Vendor-ready POs + analytics", desc: "Suggested order quantities per vendor, an analysis view, live adjustments, and a CSV export." },
   ];
 
-  const arch = [
-    ["Stateless", "No database, no login, no server writes. A refresh resets the whole demo."],
-    ["In-browser parsing", "The Excel workbook is read in memory with read-excel-file. Bytes never leave the page."],
-    ["Explainable math", "Every order quantity and metric is plain arithmetic — no AI, no machine learning."],
-  ];
-
   return (
     <div className="space-y-14 pb-12">
       <section className="hero-panel">
@@ -63,23 +57,6 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-      </section>
-
-      <section className="section-panel">
-        <p className="eyebrow">Architecture</p>
-        <h2 className="mt-1 text-2xl font-semibold">Public-safe by design</h2>
-        <div className="mt-5 grid gap-x-10 gap-y-6 sm:grid-cols-3">
-          {arch.map(([t, d]) => (
-            <div key={t}>
-              <h3 className="font-semibold">{t}</h3>
-              <p className="mt-1.5 text-sm leading-6 text-[color:var(--muted)]">{d}</p>
-            </div>
-          ))}
-        </div>
-        <p className="mt-6 border-t border-[color:var(--line)] pt-5 text-sm text-[color:var(--muted)]">
-          The real operational deployment is private and database-backed. This public demo is a
-          sanitized copy with synthetic data and no persistence.
-        </p>
       </section>
     </div>
   );

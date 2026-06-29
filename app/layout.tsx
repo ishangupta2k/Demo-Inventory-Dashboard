@@ -3,6 +3,7 @@ import { Instrument_Sans, Instrument_Serif, Geist_Mono } from "next/font/google"
 import Link from "next/link";
 import Nav from "./nav";
 import ThemeToggle from "./theme-toggle";
+import AssistantWidget from "./assistant-widget";
 import { BRAND, TAGLINE } from "@/lib/brand";
 import "./globals.css";
 
@@ -50,6 +51,8 @@ export default function RootLayout({
         <main className="app-shell py-8 sm:py-10">
           {children}
         </main>
+
+        <AssistantWidget />
       </body>
     </html>
   );

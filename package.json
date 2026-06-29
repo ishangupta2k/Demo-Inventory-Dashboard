@@ -10,6 +10,7 @@
     "test": "node --test lib/*.test.mjs"
   },
   "dependencies": {
+    "@mlc-ai/web-llm": "^0.2.84",
     "next": "16.2.9",
     "react": "19.2.4",
     "react-dom": "19.2.4",

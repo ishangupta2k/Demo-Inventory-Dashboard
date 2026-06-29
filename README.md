@@ -6,7 +6,8 @@ A sanitized, interactive demo of a private retail operations platform that conve
 point-of-sale **inventory and sales exports into vendor purchase orders**. Upload a
 spreadsheet, get vendor-ready orders computed from real demand, review and adjust them,
 and export a CSV — plus an analytics view that explains what's selling, what's at risk,
-and what's overstocked.
+and what's overstocked. A built-in assistant answers questions about the catalog and the
+current order from a language model that runs entirely in your browser — no server, no API key.
 
 > ### ⚠️ Demonstration data
 > Product and vendor names are real consumer brands, used only so the demo feels
@@ -39,6 +40,7 @@ browser on synthetic data.
 - **Editable review** — adjust any line; Final Order and totals recompute live.
 - **CSV export** — download the reviewed order for any vendor.
 - **Analysis view** — headline metrics, a 14-day daily-sales trend, top sellers, vendor summary, and stockout / no-sales / high-stock lists.
+- **In-browser AI assistant** — a chat widget that runs a language model client-side (WebGPU), grounded on the catalog, vendor rules, and the current run. No API key, no server, no per-query cost.
 - **Searchable catalog & vendor pages.**
 - **Stateless** — a page refresh resets everything.
 
@@ -48,7 +50,8 @@ browser on synthetic data.
 - **Tailwind CSS v4** (light & dark themes, shared UI primitives in `app/globals.css`)
 - **read-excel-file** — bounded, maintained Excel parser (browser build) for uploads
 - **Node's built-in test runner** (`node --test`) for the engine and analytics
-- No database, no auth library, no charting library
+- **@mlc-ai/web-llm** — runs a quantized Qwen2.5-1.5B instruct model in-browser (WebGPU) for the assistant
+- No database, no auth library, no charting library, no LLM API — the assistant model runs locally in the browser
 
 ## Architecture
 
@@ -74,7 +77,7 @@ browser on synthetic data.
   │     refresh ⇒ state gone ⇒ demo resets                               │
   └─────────────────────────────────────────────────────────────────────┘
 
-  No server routes · No database · No authentication · No persistence
+  No server routes · No database · No authentication · No persistence · LLM runs in-browser
 ```
 
 ## The purchase-order formula
@@ -107,7 +110,8 @@ single (`allow_order = false`) contributes to its orderable pack:
 
 ## Data-analysis definitions
 
-All explainable arithmetic over the uploaded window — **no AI or machine learning**.
+All explainable arithmetic over the uploaded window — **the metrics themselves use no AI or
+machine learning**. The in-browser assistant only reads these computed values; it never produces them.
 
 | Metric | Definition |
 |--------|-----------|
@@ -122,6 +126,23 @@ All explainable arithmetic over the uploaded window — **no AI or machine learn
 | Daily sales trend | Units sold per day across the 14-day window (zero days included). |
 | Top 10 fastest-selling | Items ranked by units sold, descending. |
 | Vendor summary | Per vendor: units sold, on-hand, order lines, suggested cases. |
+
+## In-browser assistant
+
+A chat assistant (bottom-right on every page) answers natural-language questions about the
+catalog, vendor rules, and the current uploaded run — *"Which vendors are there?"*,
+*"What's at risk of stocking out?"*. It runs a quantized **Qwen2.5-1.5B** instruct model
+**entirely in the browser** via WebGPU (`@mlc-ai/web-llm`): the weights download once and
+cache locally, so there is **no API key, no server, and no per-query cost**.
+
+The model is **grounded** on the same pre-computed catalog and analysis data the rest of the
+app uses, and is told to answer only from it. The deterministic engine owns every number; the
+assistant reads and explains it and never recalculates — so it cannot fabricate an order
+quantity. Requires a WebGPU browser (Chrome or Edge on desktop).
+
+![The in-browser assistant answering questions about a generated purchase-order run, grounded on the live order data](screenshots/assistant-demo.png)
+
+![The assistant is available on every page — here answering about vendors on the landing page](screenshots/assistant-home.png)
 
 ## Privacy & security decisions
 

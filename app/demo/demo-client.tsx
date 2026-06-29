@@ -5,9 +5,31 @@ import { fixtures } from "@/lib/fixtures.mjs";
 import { computeLines, analyze, parseFile } from "@/lib/engine.mjs";
 import PoTable, { finalOf, type Line } from "./po-table";
 import AnalysisView, { type Analysis } from "./analysis";
+import { setRunContext } from "@/lib/run-context";
 
 const MAX_UPLOAD_BYTES = 25 * 1024 * 1024;
 type Tab = "upload" | "pos" | "analysis";
+
+// Serialize the run so the global assistant widget can ground on it (lib/run-context).
+function runGrounding(a: Analysis) {
+  const item = (i: Analysis["topSellers"][number]) =>
+    `${i.description} (vendor ${i.vendor}): sold ${i.sold}, on hand ${i.inventory}` +
+    (i.daysOfSupply === null ? "" : `, ~${Math.round(i.daysOfSupply)}d supply`);
+  return [
+    `Total units sold (14d): ${a.totalUnitsSold}`,
+    `Current inventory units: ${a.currentInventoryUnits}`,
+    `Total suggested cases: ${a.totalSuggestedCases}`,
+    `Vendors requiring an order: ${a.vendorsRequiringOrder}`,
+    `Items at stockout risk: ${a.stockoutRiskCount}`,
+    ``, `Top sellers:`, ...a.topSellers.slice(0, 10).map((i) => `- ${item(i)}`),
+    ``, `Stockout risk:`, ...a.stockoutRisk.slice(0, 10).map((i) => `- ${item(i)}`),
+    ``, `Overstock:`, ...a.highStock.slice(0, 10).map((i) => `- ${item(i)}`),
+    ``, `Vendor summary:`,
+    ...a.vendorSummary.map(
+      (v) => `- ${v.vendor_name}: ${v.sales} sold, ${v.inventory} on hand, ${v.suggestedCases} cases / ${v.orderLines} lines`
+    ),
+  ].join("\n");
+}
 
 export default function DemoClient() {
   const fileRef = useRef<HTMLInputElement>(null);
@@ -58,6 +80,7 @@ export default function DemoClient() {
       const a: Analysis = analyze({ catalog: fixtures.catalog, lines: computed, inv, sales, dailyTotals });
       setLines(computed);
       setAnalysis(a);
+      setRunContext(runGrounding(a));
       setSalesDate(latest ? latest.toISOString().slice(0, 10) : null);
       setVendor([...new Set(computed.map((l) => l.vendor_name))].sort()[0] ?? "");
       setTab("pos");
