@@ -2,6 +2,8 @@
 
 **[▶ Live demo](https://demo-inventory-dashboard.vercel.app/)**
 
+![The analysis view with the in-browser AI assistant open, explaining suggested order quantities directly from the live data](screenshots/assistant.webp)
+
 A sanitized, interactive demo of a private retail operations platform that converts
 point-of-sale **inventory and sales exports into vendor purchase orders**. Upload a
 spreadsheet, get vendor-ready orders computed from real demand, review and adjust them,
@@ -139,10 +141,6 @@ The model is **grounded** on the same pre-computed catalog and analysis data the
 app uses, and is told to answer only from it. The deterministic engine owns every number; the
 assistant reads and explains it and never recalculates — so it cannot fabricate an order
 quantity. Requires a WebGPU browser (Chrome or Edge on desktop).
-
-![The in-browser assistant answering questions about a generated purchase-order run, grounded on the live order data](screenshots/assistant-demo.png)
-
-![The assistant is available on every page — here answering about vendors on the landing page](screenshots/assistant-home.png)
 
 ## Privacy & security decisions
 
